@@ -1,16 +1,20 @@
 const validate = require('../methods/validate');
 
+const { readdirSync } = require('fs');
+
 module.exports = class Client {
     constructor(token, ...options) {
-        const { success, err } = await validate((token || null), 'string', 0, null);
-        if (!success) throw new Error(err.replace('{data}', 'token'));
+        validate((token || null), 'string', 0, null).then(({ success, err }) => {
+            if (!success) throw new Error(d.err.replace('{data}', 'token'));
+        });
 
         this.token = `TOKEN ${token}`;
+        this.baseUrl = `https://api.ksoft.si`;
         this.shouldCache = true;
 
         if (options) {
-            if (options.cache && typeof(options.cache) == 'boolean') {
-                this.shouldCache = options.cache;
+            if (options.shouldCache && typeof(options.shouldCache) == 'boolean') {
+                this.shouldCache = options.shouldCache;
             }
         }
 
@@ -18,10 +22,13 @@ module.exports = class Client {
             this.cache = {};
         }
 
+        this.images = require('../methods/w/images');
+        this.images.setToken(this.token, this.baseUrl);
+
         return this;
     }
 
-    static version() {
+    static get version() {
         return '1.0.0';
     }
 }

@@ -1,4 +1,4 @@
-module.exports = (d, type, min, max) => {
+module.exports = async (d, type, min, max) => {
     if (!d) return { success: false, err: `No {data} provided.` };
 
     if (typeof(d) != type) return { success: false, err: `Supplied {data} was not the required type '${type}'.` };
