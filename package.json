@@ -1,0 +1,27 @@
+{
+  "name": "ksoft",
+  "version": "1.0.0",
+  "description": "A simple wrapper for the ksoft.si API.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThatTonybo/ksoft.git"
+  },
+  "keywords": [
+    "ksoft",
+    "api",
+    "wrapper"
+  ],
+  "author": "ThatTonybo (Tony)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThatTonybo/ksoft/issues"
+  },
+  "homepage": "https://github.com/ThatTonybo/ksoft#readme",
+  "dependencies": {
+    "phin": "^3.0.0"
+  }
+}
